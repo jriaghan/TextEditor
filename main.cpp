@@ -3,10 +3,8 @@
 
 using namespace std;
 
-int main() 
+int main()
 {
 	std::cout<<"compiled";
 	return 0;
-	
-	
 }
