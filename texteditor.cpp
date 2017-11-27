@@ -5,30 +5,41 @@ textEditor::List::List()
 	head = NULL;
 }
 
-//not yet final addtoList
-void textEditor::List::addtoList(char * val)
+textEditor::List::Node::Node(const char * a, Node * b)
 {
-  textEditor::List::Node * temp = this->head;
-  while (temp->next != NULL)
-  {
-    temp = temp->next;
-  }
-  textEditor::List::Node * n = new Node;
-  n->x = val;
-  n->next = NULL;
-  temp->next = n;
+  this->x = a;
+  this->next = b;
 }
 
-void textEditor::List::dispList(Node *head)
+//not yet final addtoList
+void textEditor::List::addtoList(const char * val)
 {
-	if (head == NULL)
-	{
-		std::cout<<"\n";
-		return;
-	}
+  // let's point it to somewhere
+  textEditor::List::Node * pt = this->head;
+  if (pt == NULL)  // what if it's null?!
+  {
+    this->head = new textEditor::List::Node(val);
+  }
+  else
+  {
+    while (pt->next != NULL)
+    {
+      pt = pt->next;
+    }
+    // now do what with pt?
+    textEditor::List::Node & last = *(pt);
+    last.next = new textEditor::List::Node(val);
+  }
+}
 
-	std::cout << head->x << std::endl;
-	textEditor::List::dispList(head->next);
+void textEditor::List::dispList()
+{
+  Node * a = this->head;
+  while (a != NULL)
+  {
+    std::cout << a->x << std::endl;
+    a = a->next;
+  }
 }
 
 void textEditor::start()

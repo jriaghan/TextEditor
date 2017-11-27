@@ -21,21 +21,22 @@
 
 namespace textEditor
 {
-	class List
+  /** List shall be a singly-linked list that would be the basis of
+  storing text used by the program. For efficiency sake, this should
+  be a doubly-linked list by release of v0.1, thus being easier to
+  modify. */
+	struct List
 	{
 		struct Node
 		{
-			char * x;
+			const char * x;
 			Node *next;
+			Node(const char * x, Node * next = NULL);
 		};
-
-		public:
-			List();
-			void dispList(Node *head);
-			void addtoList(char * val);
-
-		private:
-			Node *head;
+    List();
+    void dispList();
+    void addtoList(const char * val);
+    Node *head;
 
 	};
 

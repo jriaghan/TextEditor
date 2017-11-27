@@ -5,6 +5,9 @@ using namespace std;
 
 int main()
 {
-	std::cout<<"compiled";
-	return 0;
+  textEditor::List a;
+  a.addtoList("NIGGER");
+  a.addtoList("FAGGOT");
+  a.addtoList("PUSSY");
+  a.dispList();
 }
