@@ -1,13 +1,19 @@
 #include "texteditor.hpp"
-#include <string>
 
 textEditor::List::List()
 {
 	head = NULL;
 }
 
+void textEditor::List::addtoList(const char *val)
+{
+	Node *newNode = new Node();
+	
+}
+
 //not yet final addtoList
-void textEditor::List::addtoList(char * val)
+/*
+void textEditor::List::addtoList(const char * val)
 {
   textEditor::List::Node * temp = this->head;
   while (temp->next != NULL)
@@ -19,6 +25,8 @@ void textEditor::List::addtoList(char * val)
   n->next = NULL;
   temp->next = n;
 }
+*/
+
 
 void textEditor::List::dispList(Node *head)
 {
@@ -39,18 +47,21 @@ void textEditor::start()
 
 }
 
-
 void textEditor::userInput()
 {
 	int x = 1;
 	std::string input;
+	textEditor::List a;
 	do
 	{
 		std::cout<<x<<"> ";
 		std::getline (std::cin,input);
-		if (input == "A")
+		if (input == "A") //save as text file
 		{
-			//save  list
+			std::ofstream textfile;
+			textfile.open("output.txt");
+			textfile<<"OUTPUT SOMETHING HERE";
+			textfile.close();
 		}
 		else if (input=="I")
 		{
@@ -63,6 +74,12 @@ void textEditor::userInput()
 		else if (input=="L")
 		{
 			//output list
+		}
+		else
+		{
+			const char * temp;
+			temp = input.c_str();
+			a.addtoList(temp);
 		}
 		
 		++x;	

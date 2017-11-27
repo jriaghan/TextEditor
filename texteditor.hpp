@@ -25,14 +25,15 @@ namespace textEditor
 	{
 		struct Node
 		{
-			char * x;
+			const char * x;
 			Node *next;
+			
 		};
 
 		public:
 			List();
 			void dispList(Node *head);
-			void addtoList(char * val);
+			void addtoList(const char * val);
 
 		private:
 			Node *head;
