@@ -3,10 +3,9 @@
 
 using namespace std;
 
-int main() 
+int main()
 {
-	std::cout<<"compiled";
+	textEditor::start();
+	
 	return 0;
-	
-	
 }
