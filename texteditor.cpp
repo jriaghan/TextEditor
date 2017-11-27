@@ -1,85 +1,36 @@
 #include "texteditor.hpp"
+#include <string>
 
 textEditor::List::List()
 {
 	head = NULL;
 }
 
-void textEditor::Node::setData(const char *data)
+//not yet final addtoList
+void textEditor::List::addtoList(const char * val)
 {
-	x=data;
+  textEditor::List::Node * temp = this->head;
+  while (temp->next != NULL)
+  {
+    temp = temp->next;
+  }
+  textEditor::List::Node * n = new Node;
+  n->x = val;
+  n->next = NULL;
+  temp->next = n;
 }
 
-void textEditor::Node::setNext(Node* anext)
+void textEditor::List::dispList(Node *head)
 {
-	next=anext;
+	if (head == NULL)
+	{
+		std::cout<<"\n";
+		return;
+	}
+
+	std::cout << head->x << std::endl;
+	textEditor::List::dispList(head->next);
 }
-
-const char * textEditor::Node::Data() 
-{ 
-	return x; 
-}
-
-void textEditor::List::display()
-{
-	//temp pointer
-	Node *tmp = head;
-	
-	//no nodes
-	if ( tmp == NULL ) 
-	{
-		std::cout<<"NO LINES";
-    return;
-  }
-  //one node
-  if ( tmp->next == NULL ) 
-	{
-    std::cout << tmp->Data();
-    std::cout << "\n";
-  }
-  else 
-	{
-    // Parse and print the list
-    do 
-		{
-      std::cout << tmp->Data();
-      std::cout << "\n";
-      tmp = tmp->next;
-    }
-    while ( tmp != NULL );
-  }
-}
-
-void textEditor::List::append(const char *data)
-{
-	// Create a new node
-  Node* newNode = new Node();
-  newNode->setData(data);
-  newNode->setNext(NULL);
-  
-  // Create a temp pointer
-  Node *tmp = head;
-
-  if ( tmp != NULL ) 
-	{
-  	// Nodes already present in the list
-  	// Parse to end of list
-  	while ( tmp->next != NULL ) 
-		{
-      tmp = tmp->next;
-  	}
-
-  	// Point the last node to the new node
-  	tmp->setNext(newNode);
-  }
-  
-  else 
-	{
-  // First node in the list
-  head = newNode;
-  }
-}
-
 
 void textEditor::start()
 {
@@ -120,10 +71,9 @@ void textEditor::userInput()
 		{
 			const char * temp;
 			temp = input.c_str();
-			
+			a.addtoList(temp);
 		}
-		
 		++x;	
-	}while(input!="E");
+	} while(input!="E");
 	
 }

@@ -7,6 +7,7 @@ CursorRow=11
 TopLine=1
 LeftChar=1
 [Editor_1]
+<<<<<<< HEAD
 CursorCol=15
 CursorRow=29
 TopLine=19
@@ -15,4 +16,14 @@ LeftChar=1
 CursorCol=2
 CursorRow=12
 TopLine=4
+=======
+CursorCol=4
+CursorRow=43
+TopLine=24
+LeftChar=1
+[Editor_2]
+CursorCol=8
+CursorRow=76
+TopLine=17
+>>>>>>> master
 LeftChar=1

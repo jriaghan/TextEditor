@@ -21,26 +21,24 @@
 
 namespace textEditor
 {
-	class Node
-	{
-		public:
-			const char *x;
-			Node *next;
-			Node();
-			void setData(const char *data);
-			void setNext(Node *anext);
-			const char * Data();
-	};
-	
 	class List
 	{
-		private:
-			Node *head;
-		
+		struct Node
+		{
+			const char * x;
+			Node *next;
+			
+		};
+
 		public:
 			List();
-			void display();
-			void append(const char *data);
+			void dispList(Node *head);
+			void addtoList(const char * val);
+			void addtoList(char * val);
+
+		private:
+			Node *head;
+
 	};
 	
 	void userInput();
