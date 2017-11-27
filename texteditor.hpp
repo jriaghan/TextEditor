@@ -21,23 +21,38 @@
 
 namespace textEditor
 {
-  /** List shall be a singly-linked list that would be the basis of
-  storing text used by the program. For efficiency sake, this should
-  be a doubly-linked list by release of v0.1, thus being easier to
-  modify. */
+  /** List shall be a doubly-linked list that would be the basis of
+  storing text used by the program.*/
 	struct List
 	{
 		struct Node
 		{
 			const char * x;
-			Node *next;
-			Node(const char * x, Node * next = NULL);
+			Node * next;
+			Node * prev;
+			Node(const char * chr);
+			Node(const char * chr, Node * prv, Node * nxt);
+			~Node();
 		};
     List();
+    /** Should display each item in the List, followed by a newline */
     void dispList();
+    /** Should add an item on the tail of the list */
     void addtoList(const char * val);
-    Node *head;
+    /**
+    Should add an item before the index'th entry, starting from 0.
+    For example, if index is 0, it should add before the zeroth entry (i.e.
+    the head of the said list). Then, the new node is the index'th entry.
 
+    If index is greater than the length of the list, or less than 0, print out
+    an error to stdout, and do nothing.
+    */
+    void addByIndex(const char * val, int index);
+    Node * head;
+    Node * tail;
+    /** The length of the list. It shall be modified after every "operation".
+    */
+    int length;
 	};
 
 	/** The list that shall contain the text file to be written.

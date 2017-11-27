@@ -9,5 +9,7 @@ int main()
   a.addtoList("NIGGER");
   a.addtoList("FAGGOT");
   a.addtoList("PUSSY");
+  a.addByIndex("CUNT", 0);
+  a.addByIndex("PUSSYNIGGER", 5);
   a.dispList();
 }
