@@ -1,4 +1,5 @@
 #include "texteditor.hpp"
+#include <string>
 
 textEditor::List::List()
 {
@@ -6,13 +7,17 @@ textEditor::List::List()
 }
 
 //not yet final addtoList
-void textEditor::List::addtoList(char val)
+void textEditor::List::addtoList(char * val)
 {
-	Node *n = new Node();
-	n->x = val;
-	n->next = head;
-	
-	head = n;
+  textEditor::List::Node * temp = this->head;
+  while (temp->next != NULL)
+  {
+    temp = temp->next;
+  }
+  textEditor::List::Node * n = new Node;
+  n->x = val;
+  n->next = NULL;
+  temp->next = n;
 }
 
 void textEditor::List::dispList(Node *head)
@@ -22,16 +27,45 @@ void textEditor::List::dispList(Node *head)
 		std::cout<<"\n";
 		return;
 	}
-	
-	std::cout<< head->x;
+
+	std::cout << head->x << std::endl;
 	textEditor::List::dispList(head->next);
 }
 
 void textEditor::start()
 {
-	char word;
+	textEditor::userInput();
+	// do stuff
+
+}
+
+
+void textEditor::userInput()
+{
+	int x = 1;
+	std::string input;
 	do
 	{
+		std::cout<<x<<"> ";
+		std::getline (std::cin,input);
+		if (input == "A")
+		{
+			//save  list
+		}
+		else if (input=="I")
+		{
+			//insert to list
+		}
+		else if (input=="D")
+		{
+			//delete lines
+		}
+		else if (input=="L")
+		{
+			//output list
+		}
 		
-	}while()
+		++x;	
+	}while(input!="E");
+	
 }
