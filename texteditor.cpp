@@ -6,7 +6,7 @@ textEditor::List::List()
 }
 
 //not yet final addtoList
-void textEditor::List::addtoList(std::string val)
+void textEditor::List::addtoList(char * val)
 {
   textEditor::List::Node * temp = this->head;
   while (temp->next != NULL)
