@@ -1,18 +1,12 @@
 #include "texteditor.hpp"
+#include <string>
 
 textEditor::List::List()
 {
 	head = NULL;
 }
 
-void textEditor::List::addtoList(const char *val)
-{
-	Node *newNode = new Node();
-	
-}
-
 //not yet final addtoList
-/*
 void textEditor::List::addtoList(const char * val)
 {
   textEditor::List::Node * temp = this->head;
@@ -25,8 +19,6 @@ void textEditor::List::addtoList(const char * val)
   n->next = NULL;
   temp->next = n;
 }
-*/
-
 
 void textEditor::List::dispList(Node *head)
 {
@@ -81,8 +73,7 @@ void textEditor::userInput()
 			temp = input.c_str();
 			a.addtoList(temp);
 		}
-		
 		++x;	
-	}while(input!="E");
+	} while(input!="E");
 	
 }

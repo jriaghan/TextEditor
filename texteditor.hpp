@@ -34,6 +34,7 @@ namespace textEditor
 			List();
 			void dispList(Node *head);
 			void addtoList(const char * val);
+			void addtoList(char * val);
 
 		private:
 			Node *head;
