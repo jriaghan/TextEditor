@@ -21,24 +21,21 @@
 
 namespace textEditor
 {
-	class List
+	struct List
 	{
 		struct Node
 		{
 			const char * x;
-			Node *next;
-			
+			Node * next;
+			Node * prev;
+			Node(const char * chr);
+			Node(const char * chr, Node * prv, Node * nxt);
 		};
-
-		public:
-			List();
-			void dispList(Node *head);
-			void addtoList(const char * val);
-			void addtoList(char * val);
-
-		private:
-			Node *head;
-
+    List();
+    void dispList();
+    void addtoList(const char * val);
+    Node * head;
+    Node * tail;
 	};
 	
 	void userInput();
@@ -54,7 +51,6 @@ namespace textEditor
 	static std::string fileName = "a.txt";
 
 	void start();
-
 
 }
 

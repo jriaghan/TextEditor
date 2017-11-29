@@ -1,35 +1,57 @@
 #include "texteditor.hpp"
-#include <string>
 
 textEditor::List::List()
 {
 	head = NULL;
+	tail = NULL;
 }
 
-//not yet final addtoList
+textEditor::List::Node::Node(const char * chr)
+{
+  this->x = chr;
+}
+
+textEditor::List::Node::Node(const char * chr, Node * prv, Node * nxt)
+{
+  this->x = chr;
+  this->next = nxt;
+  this->prev = prv;
+}
+
 void textEditor::List::addtoList(const char * val)
 {
-  textEditor::List::Node * temp = this->head;
-  while (temp->next != NULL)
+  // let's point it to somewhere
+  textEditor::List::Node * pt = this->head;
+  if (this->head == NULL)  // what if it's null?!
   {
-    temp = temp->next;
+    this->head = new textEditor::List::Node(val, 0, 0);
+    this->tail = this->head;
   }
-  textEditor::List::Node * n = new Node;
-  n->x = val;
-  n->next = NULL;
-  temp->next = n;
+  else
+  {
+    /*
+    while (pt->next != NULL)
+    {
+      pt = pt->next;
+    }
+    // now do what with pt?
+    textEditor::List::Node & last = *(pt);
+    last.next = new textEditor::List::Node(val, pt, 0);
+    this->tail = last.next;
+    */
+    this->tail = new textEditor::List::Node(val, this->tail, 0);
+    this->tail->prev->next = this->tail;
+  }
 }
 
-void textEditor::List::dispList(Node *head)
+void textEditor::List::dispList()
 {
-	if (head == NULL)
-	{
-		std::cout<<"\n";
-		return;
-	}
-
-	std::cout << head->x << std::endl;
-	textEditor::List::dispList(head->next);
+  Node * a = this->head;
+  while (a != NULL)
+  {
+    std::cout << a->x << std::endl;
+    a = a->next;
+  }
 }
 
 void textEditor::start()
@@ -65,7 +87,7 @@ void textEditor::userInput()
 		}
 		else if (input=="L")
 		{
-			//output list
+			a.dispList();
 		}
 		else
 		{
