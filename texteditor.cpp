@@ -96,6 +96,11 @@ void textEditor::List::addByIndex(const char * val, int index)
     ++this->length;
 }
 
+void textEditor::List::deleteByIndex(int index)
+{
+    
+}
+
 void textEditor::start()
 {
     textEditor::userInput();
@@ -123,15 +128,24 @@ void textEditor::userInput()
         else if (input[0] == 'I')
         {
             //insert to list
+            if (input.substr(2) == "")
+            {
+                std::cin.clear();
+                std::cin.ignore();
+                std::cout << "Invalid input; you forgot to type line number.";
+            }
             for (int i=1; i < std::stoi(input.substr(2)); i++)
             {
                 /*do something that will create new node if there isn't, and skip if there is,
-		until we reach the node number that is equal to number user wrote.*/
+                 until we reach the node number that is equal to number user wrote.*/
             }
+            x = std::stoi(input.substr(2));
         }
         else if (input[0] == 'D')
         {
             //delete lines
+            //deleteByIndex(std::stoi(input.substr(2)));
+            
         }
         else if (input[0] == 'L')
         {
