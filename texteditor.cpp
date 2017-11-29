@@ -180,9 +180,18 @@ void textEditor::userInput()
             }
             else
             {
+                int firstspace = input.find(' ');
+                int secondspace = input.find(' ', 3);
+                int numberlength = (secondspace - firstspace);
+                for (int i = std::stoi(input.substr(2)); i<(std::stoi(input.substr(2))+numberlength); i++)
+                {
+                    a.deleteByIndex(i);
+                }
                 //in case there are 2 numbers, e.g. D 1 4
                 //we have to figure out how to tell diff between 1st and 2nd number.
             }
+                
+        }
                 
         }
         else if (input[0] == 'L')
