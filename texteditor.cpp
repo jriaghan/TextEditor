@@ -172,7 +172,10 @@ void textEditor::userInput()
         else if (input[0] == 'D')
         {
             //delete lines
-            a.deleteByIndex(std::stoi(input.substr(2)));            
+            for (int i = std::stoi(input.substr(2)); i<=std::stoi(input.substr(4)); i++)
+            {
+                a.deleteByIndex(i);
+            }            
         }
         else if (input[0] == 'L')
         {
