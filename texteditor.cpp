@@ -123,7 +123,7 @@ void textEditor::userInput()
         else if (input[0] == 'I')
         {
             //insert to list
-            for (int i=1; i < input[2]; i++)
+            for (int i=1; i < std::stoi(input.substr(2)); i++)
             {
                 /*do something that will create new node if there isn't, and skip if there is,
 		until we reach the node number that is equal to number user wrote.*/
