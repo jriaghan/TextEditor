@@ -153,7 +153,7 @@ void textEditor::userInput()
             textfile << "OUTPUT SOMETHING HERE";
             textfile.close();
         }
-        else if (input[0] == 'I')
+        else if (input[0] == 'I' && input[1] == ' ')
         {
             //insert to list
             if (input.size() < 2)
@@ -169,7 +169,7 @@ void textEditor::userInput()
                 a.addByIndex(content.c_str(), std::stoi(input.substr(2)));
             }
         }
-        else if (input[0] == 'D')
+        else if (input[0] == 'D' && input[1] == ' ')
         {
             //delete lines
             for (int i = std::stoi(input.substr(2)); i<=std::stoi(input.substr(4)); i++)
