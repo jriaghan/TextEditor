@@ -92,7 +92,6 @@ void textEditor::List::addByIndex(const char * val, int index)
 }
 
 void textEditor::start()
-{
-	// do stuff
-
+{ 
+  // do stuff
 }
