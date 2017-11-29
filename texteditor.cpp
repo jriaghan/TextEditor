@@ -172,11 +172,15 @@ void textEditor::userInput()
         else if (input[0] == 'D' && input[1] == ' ')
         {
             //delete lines
-            for (int i = std::stoi(input.substr(2)); i<=std::stoi(input.substr(4)); i++)
+            if (input.find(' ') == input.rfind(' '))
             {
-                a.deleteByIndex(i);
-            }            
-        }
+                a.deleteByIndex(std::stoi(input.substr(2)));
+            }
+            else
+            {
+                //in case there are 2 numbers, e.g. D 1 4
+                //we have to figure out how to tell diff between 1st and 2nd number.
+            }
         else if (input[0] == 'L')
         {
             a.dispList(1);
