@@ -51,10 +51,11 @@ namespace textEditor
     List();
     /**
      * @brief Displays the list
-     * Displays the list by printing every x of every Node, followed by
-     * a newline.
+     * @param strt
+     * Displays the list by printing a number starting from strt, followed by
+     * the value of each Node, followed by a newline.
      */
-    void dispList();
+    void dispList(int strt=0);
     /**
      * @brief Add a node on tail
      * @param val

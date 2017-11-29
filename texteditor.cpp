@@ -21,8 +21,8 @@ textEditor::List::Node::Node(const char * chr)
 textEditor::List::Node::Node(const char * chr, Node * prv, Node * nxt)
 {
   this->x = chr;
-  this->next = nxt;
   this->prev = prv;
+  this->next = nxt;
 }
 
 void textEditor::List::addtoList(const char * val)
@@ -35,19 +35,22 @@ void textEditor::List::addtoList(const char * val)
   }
   else
   {
-    this->tail = new textEditor::List::Node(val, this->tail, 0);
+    Node * tmp = new Node(val, this->tail, 0);
+    this->tail = tmp;
     this->tail->prev->next = this->tail;
   }
   ++this->length;
 }
 
-void textEditor::List::dispList()
+void textEditor::List::dispList(int strt)
 {
   Node * a = this->head;
+  int x = strt;
   while (a != NULL)
   {
-    std::cout << a->x << std::endl;
+    std::cout << x << "] " << a->x << std::endl;
     a = a->next;
+    ++x;
   }
 }
 
@@ -106,13 +109,14 @@ void textEditor::userInput()
 	textEditor::List a;
 	do
 	{
-		std::cout<<x<<"> ";
+    std::cout<<x<<"> ";
+    std::cin.clear();
 		std::getline (std::cin,input);
 		if (input == "A") //save as text file
 		{
 			std::ofstream textfile;
 			textfile.open("output.txt");
-			textfile<<"OUTPUT SOMETHING HERE";
+			textfile << "OUTPUT SOMETHING HERE";
 			textfile.close();
 		}
 		else if (input=="I")
@@ -125,14 +129,12 @@ void textEditor::userInput()
 		}
 		else if (input=="L")
 		{
-			//output list
+			a.dispList(1);
 		}
 		else
 		{
-			const char * temp;
-			temp = input.c_str();
-			a.addtoList(temp);
+			a.addtoList(input.c_str());
+      ++x;
 		}
-		++x;	
 	} while(input!="E");
 }
