@@ -181,7 +181,7 @@ void textEditor::userInput()
             else
             {
                 int firstspace = input.find(' ');
-                int secondspace = input.find(' ', 3);
+                int secondspace = input.find(' ', 2);
                 int numberlength = (secondspace - firstspace);
                 for (int i = std::stoi(input.substr(2)); i<(std::stoi(input.substr(2))+numberlength); i++)
                 {
