@@ -156,18 +156,18 @@ void textEditor::userInput()
         else if (input[0] == 'I')
         {
             //insert to list
-            if (input.substr(2) == "")
+            if (input.size() < 2)
             {
                 std::cin.clear();
                 std::cin.ignore();
                 std::cout << "Invalid input; you forgot to type line number.";
             }
-            for (int i=1; i < std::stoi(input.substr(2)); i++)
+            else
             {
-                /*do something that will create new node if there isn't, and skip if there is,
-                 until we reach the node number that is equal to number user wrote.*/
+                std::string content;
+                std::getline (std::cin, content);
+                a.addByIndex(content.c_str(), std::stoi(input.substr(2)));
             }
-            x = std::stoi(input.substr(2));
         }
         else if (input[0] == 'D')
         {
