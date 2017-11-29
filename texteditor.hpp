@@ -16,21 +16,12 @@
 //dependencies
 #include <iostream>
 #include <fstream>
-<<<<<<< HEAD
-#include <vector>
-=======
-#include <vector>
-<<<<<<< HEAD
->>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
-=======
->>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 #include <string>
 
 namespace textEditor
 {
   /**
    * @class List
-   * @author Deutsches Reich
    * @date 11/28/17
    * @file texteditor.hpp
    * @brief A doubly-linked list of List::Node
@@ -40,18 +31,6 @@ namespace textEditor
    */
 	struct List
 	{
-<<<<<<< HEAD
-    /**
-     * @class Node
-     * @author Deutsches Reich
-     * @date 11/28/17
-     * @file texteditor.hpp
-     * @brief A char* Node inside a doubly-linked list
-     * 
-     * The node consists of the data (presented in a const char-array), two
-     * pointers representing the node before and after it, a constructor, and
-     * a destructor.
-     */
 		struct Node
 		{
 			const char * x;  /// the data for the Node
@@ -138,44 +117,10 @@ namespace textEditor
    * require; when using this header file for other applications, start() should
    * be invoked.
    */
-=======
-		struct Node
-		{
-			const char * x;
-			Node *next;
-			
-		};
-
-		public:
-			List();
-			void dispList(Node *head);
-			void addtoList(const char * val);
-			void addtoList(char * val);
-
-		private:
-			Node *head;
-
-	};
-	
-	void userInput();
-	
-	/** The list that shall contain the text file to be written.
-	A list of char*, wherein each char* is separated by "\n" in the
-	actual file.
-	*/
-	static List masterList;
-
-	/** The filename of the file to be read or written.
-	*/
-	static std::string fileName = "a.txt";
-
-<<<<<<< HEAD
->>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
-=======
->>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 	void start();
-
-
+  
+  void userInput();
+  
 }
 
 #endif

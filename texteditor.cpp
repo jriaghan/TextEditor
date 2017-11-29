@@ -25,7 +25,6 @@ textEditor::List::Node::Node(const char * chr, Node * prv, Node * nxt)
   this->prev = prv;
 }
 
-<<<<<<< HEAD
 void textEditor::List::addtoList(const char * val)
 {
   // let's point it to somewhere
@@ -94,36 +93,6 @@ void textEditor::List::addByIndex(const char * val, int index)
 }
 
 void textEditor::start()
-{ 
-  // do stuff
-=======
-//not yet final addtoList
-void textEditor::List::addtoList(const char * val)
-{
-  textEditor::List::Node * temp = this->head;
-  while (temp->next != NULL)
-  {
-    temp = temp->next;
-  }
-  textEditor::List::Node * n = new Node;
-  n->x = val;
-  n->next = NULL;
-  temp->next = n;
-}
-
-void textEditor::List::dispList(Node *head)
-{
-	if (head == NULL)
-	{
-		std::cout<<"\n";
-		return;
-	}
-
-	std::cout << head->x << std::endl;
-	textEditor::List::dispList(head->next);
-}
-
-void textEditor::start()
 {
 	textEditor::userInput();
 	// do stuff
@@ -166,9 +135,4 @@ void textEditor::userInput()
 		}
 		++x;	
 	} while(input!="E");
-	
-<<<<<<< HEAD
->>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
-=======
->>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 }
