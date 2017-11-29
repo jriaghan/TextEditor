@@ -35,9 +35,10 @@ void textEditor::List::addtoList(const char * val)
   }
   else
   {
-    Node * tmp = new Node(val, this->tail, 0);
+    Node * tmp = new Node(val);
+    tmp->prev = this->tail;
+    this->tail->next = tmp;
     this->tail = tmp;
-    this->tail->prev->next = this->tail;
   }
   ++this->length;
 }
