@@ -98,7 +98,35 @@ void textEditor::List::addByIndex(const char * val, int index)
 
 void textEditor::List::deleteByIndex(int index)
 {
-    
+    if (index >= this->length || index < 0)
+    {
+        std::cout << "[ERROR] Invalid value placed in textEditor::List::addByIndex" << std::endl;
+        return;
+    }
+    Node * a = this->head;
+    for (int i = 0; i < index; ++i)
+    {
+        a = a->next;
+    }
+    if (a == this->head)
+    {
+        this->head = a->next;
+        delete a;
+        this->head->prev = 0;
+    }
+    if (a == this->tail)
+    {
+        this->tail = a->prev;
+        delete a;
+        this->tail->next = 0;
+    }
+    else
+    {
+        a->prev->next = a->next;
+        a->next->prev = a->prev;
+        delete a;
+    }
+    --this->length;
 }
 
 void textEditor::start()
