@@ -100,7 +100,9 @@ void textEditor::List::deleteByIndex(int index)
 {
     if (index >= this->length || index < 0)
     {
-        std::cout << "[ERROR] Invalid value placed in textEditor::List::addByIndex" << std::endl;
+        std::cout <<
+        "[ERROR] Invalid value placed in textEditor::List::addByIndex"
+        << std::endl;
         return;
     }
     Node * a = this->head;
@@ -181,6 +183,8 @@ void textEditor::userInput()
                 //in case there are 2 numbers, e.g. D 1 4
                 //we have to figure out how to tell diff between 1st and 2nd number.
             }
+                
+        }
         else if (input[0] == 'L')
         {
             a.dispList(1);
