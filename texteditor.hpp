@@ -20,6 +20,9 @@
 #include <vector>
 =======
 #include <vector>
+<<<<<<< HEAD
+>>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
+=======
 >>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 #include <string>
 
@@ -166,6 +169,9 @@ namespace textEditor
 	*/
 	static std::string fileName = "a.txt";
 
+<<<<<<< HEAD
+>>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
+=======
 >>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 	void start();
 

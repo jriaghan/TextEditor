@@ -167,5 +167,8 @@ void textEditor::userInput()
 		++x;	
 	} while(input!="E");
 	
+<<<<<<< HEAD
+>>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
+=======
 >>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 }

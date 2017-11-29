@@ -4,6 +4,7 @@
 using namespace std;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 int main()
 {
   textEditor::List a;
@@ -15,6 +16,8 @@ int main()
   a.dispList();
 }
 =======
+=======
+>>>>>>> 620804f209b27b21d7bcd40ba25f14ec1d132146
 int main()
 {
 	textEditor::start();
