@@ -126,8 +126,6 @@ namespace textEditor
   * determine which action to make, based on the input from the user
   */
   void userInput();
-
-
 }
 
 #endif

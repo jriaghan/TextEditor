@@ -172,6 +172,7 @@ void textEditor::userInput()
   std::string fileName = "output.txt";
   std::cout << "Enter file name (default: output.txt): ";
   std::getline(std::cin, fileName);
+  // disregard invalid characters
   for (auto & x : {"<", ">", ":", "\"", "/", "\\", "|", "?", "*", ".."})
   {
     if (fileName.find(x) != std::string::npos)
@@ -181,6 +182,11 @@ void textEditor::userInput()
       fileName = "output.txt";
       break;
     }
+  }
+  // and what if fileName is empty (i.e. the user just pressed enter)
+  if (fileName == "")
+  {
+    fileName = "output.txt";
   }
   do
   {
@@ -327,6 +333,10 @@ void textEditor::userInput()
           // NOTE THAT THE VALUE OF i CHANGES EVERY TIME THE LOOP IS ITERATED
           a.deleteByIndex(firstInt - 1);  // -1 because index starts at 0
           // and subtract x (if only necessary)
+          if (firstInt < x)
+          {
+            --x;
+          }
         }
       }
     }
